@@ -2,6 +2,7 @@ package com.example.todoapp;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -26,6 +27,7 @@ public class Service {
         return repository.findAll(pageable).getContent();
     }
 
+    @Transactional
     public Todo updateTodo(long todoId, Todo todo) {
         Todo findTodo = repository.findById(todoId).orElseThrow();
         findTodo.setTitle(todo.getTitle());
