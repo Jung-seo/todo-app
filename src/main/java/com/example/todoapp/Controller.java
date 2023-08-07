@@ -19,6 +19,11 @@ public class Controller {
         this.mapper = mapper;
     }
 
+    @GetMapping("/hello")
+    public String helloWorld() {
+        return "To-do Application";
+    }
+
     @PostMapping
     public ResponseEntity postTodo(@RequestBody Todo todo) {
 //        Todo todo = mapper.todoDtoToTodo(todoDto);
